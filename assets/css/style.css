@@ -187,7 +187,7 @@ footer {
    justify-content: space-between;
    align-items: center;
 }
-.social {
+.social { 
    display: flex;
    list-style-type: none;
 }
