@@ -12,7 +12,7 @@ body {
 	align-items: center; /* вирівнюємо елементу за центром */
 	box-sizing: border-box; /* ширина border не додається в ширину елементу */
   }
-
+     
 .nav {
    	display: flex;
    	list-style-type: none; /* прибираємо вигляд списку за замовчування */
