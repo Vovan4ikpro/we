@@ -1,37 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   <title>Main</title>
-   <link rel="stylesheet" href="assets/css/layout.css">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>DEPARTMENT</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="normalize.css">
+   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<header class="header"><p><img src="assets/img/navi.png" alt="logo" height = "40px"></p></header>
-<div class="container">
-   <main class="center column">
-       <article>
-           <h1>Main</h1>
-           <p></p>
-       </article>
-   </main>
-   <nav class="left column">
-       <h3>Pages</h3>
-       <ul>
-			<li><a href="about.html">about</a></li>
-		   <li><a href="contact.html">contact</a></li>
-		   <li><a href="media.html">media</a></li>
-		   <li><a href="slider.html">slider</a></li>
-		   <li><a href="table.html">table</a></li>
-       </ul>
-   </nav>
-   <div class="right column">
-       <h3>Right heading</h3>
-       <p></p>
+   <header>
+      <div class="header">
+         <a href="" class="logo">
+            <img src="assets/img/logo.svg" alt="logo">
+            <span>DEPARTMENT</span>
+         </a>
+          <nav>
+               <ul class="nav">
+                  <li><a href="">Студентам</a></li>
+                  <li><a href="">Викладачам</a></li>
+                  <li><a href="">Адміністрація</a></li>
+                  <li><button class="button"
+                     type="button">Вступити</button></li>
+               </ul>
+          </nav>
+      </div> 
+   </header>
+
+   <div class="page">
+      <div class="wrap">
+         <h1>Шановні абітурієнти!</h1> 
+         <p class="hero-text">Ви зараз стоїте перед найважливішим вибором кожної людини — чому присвятити своє життя, яку обрати професію, як перетворити її на улюблену справу.</p>
+         <button type="button" class="button">Вступити</button>
+      </div>
    </div>
-   <div class="push"></div>
-</div>
-<div class="footer-wrapper">
-   <footer class="footer"><p><img src="assets/img/navi.png" alt="logo" height = "40px"></p></footer>
-</div>
+
+   <div class="page page-top">
+      <div class="wrap">
+          <h2>КАФЕДРИ</h2>
+          <div class="departments">
+              <div class="dep-item">
+                  <div class="img"><img src="assets\img\securite.svg" alt="securite"></div>
+                  <div class="text">
+                      <h3>Безпеки інформаційних систем</h3>
+                      <p>Підготовка фахівців і проведення наукових досліджень в галузі комплексного захисту складних інформаційних та комунікаційних систем.</p>
+                  </div>
+              </div>
+              <div class="dep-item">
+                  <div class="img"><img src="assets\img\robot.svg" alt="robot"></div>
+                  <div class="text">
+                      <h3>Електроніки і управляючих систем</h3>
+                      <p>Основні напрями наукових досліджень — інформаційно-вимірювальні управляючі системи. </p>
+                  </div>
+              </div>
+              <div class="dep-item">
+                  <div class="img"><img src="assets\img\simulation.svg" alt="simulation"></div>
+                  <div class="text">
+                      <h3>Моделювання систем і технологій</h3>
+                      <p>Наукова діяльність викладачів та студентів кафедри сконцентрована у таких напрямках як розробка та дослідження нових моделей, методів і програмних засобів для створення  інтелектуальних інформаційних систем і технологій</p>
+                  </div>
+              </div>
+              <div class="dep-item">
+                  <div class="img"><img src="assets\img\ai.svg" alt="ai"></div>
+                  <div class="text">
+                      <h3>Штучного інтелекту та пз</h3>
+                      <p>Основні напрямки наукових досліджень: експертні системи, загальні питання опису інформаційних технологічних систем, фундаментальні дослідження в теорії інформації.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+   </div>
+
+     <div class="page page-top">
+        <div class="wrap">
+            <h2>КАФЕДРИ</h2>
+            <div class="vikladachi">
+               <div class="vikladachi-item">
+                  <div class="img"><img src="assets\img\rassomahin.svg" alt="rassomahin"></div>
+                  <div class="text">
+                     <h4>Рассомахін С.Г.</h4>
+                     <p>Завідувач кафедрою, доктор технічних наук, доцент</p>
+                  </div>
+               </div>
+               <div class="vikladachi-item">
+                  <div class="img"><img src="assets\img\stervoedov.svg" alt="stervoedov"></div>
+                  <div class="text">
+                     <h4>Стєрвоєдов М.Г.</h4>
+                     <p>Завідувач кафедри електроніки і управляючих систем, доцент, кандидат технічних наук</p>
+                  </div>
+               </div>
+               <div class="vikladachi-item">
+                  <div class="img"><img src="assets\img\tkachuk.svg" alt="tkachuk"></div>
+                  <div class="text">
+                     <h4>Ткачук М.В.</h4>
+                     <p>Завідувач кафедрою, доктор технічних наук, професор кафедри моделювання систем і технологій </p>
+                  </div>
+               </div>
+               <div class="vikladachi-item">
+                  <div class="img"><img src="assets\img\kuklin.svg" alt="kuklin"></div>
+                  <div class="text">
+                     <h4>Куклін В.М.</h4>
+                     <p>Завідувач кафедри штучного інтелекту та програмного забезпечення, професор, доктор фізико-математичних наук </p>
+                  </div>
+               </div>
+               <div class="vikladachi-item">
+                  <div class="img"><img src="assets\img\smatkov.svg" alt="smatkov" ></div>
+                  <div class="text">
+                     <h4> Шматков С.І.</h4>
+                     <p>Завідувач кафедрою, доктор технічних наук, профессор, академік АНПРЕ </p>
+                  </div>
+               </div>
+               <div class="vikladachi-item">
+                  <div class="img"><img src="assets\img\lazurik.svg"  alt="lazurik"></div>
+                  <div class="text">
+                     <h4>Лазурик В.Т.</h4>
+                     <p>Доктор фізико-математичних наук, професор кафедри моделювання систем і технологій, декан ФКН</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+     <footer>
+        <div class="wrap">
+            <div class="footer">
+                <a href="" class="logo-footer">
+                    <img src="assets/img/logo.svg" alt="logo">
+                </a>
+                <ul class="social">
+                    <li><a href="" target="_blank"><i class="fab fa-github"></i></a></li>
+                    <li><a href="" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="" target="_blank"><i class="fab fa-codepen"></i></a></li>
+                </ul>
+            </div>
+        </div>
+     </footer>
 </body>
 </html>
