@@ -4,6 +4,34 @@
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
    <title>Slider</title>
    <link rel="stylesheet" href="assets/css/layout.css">
+   <link rel="stylesheet" href="assets/css/style.css">
+   <script src="assets/js/script.js"></script>
+   <script>    window.onload = function() {
+    // ви можете зробити скільки завгодно слайдів
+    let slides = [
+        {
+            title: "Сова",
+            background: "public//images/1.jpeg",
+            link: "https://drive.google.com/drive/u/0/"
+        }, {
+            title: "Бобер",
+            background: "public//images/2.jpg",
+            link: "https://www.instagram.com/"
+        },
+     {
+            title: "Moodle",
+            background: "assets/img/navi.png",
+            link: "https://moodle.karazin.ua/login/index.php"
+        }
+    ]
+    Slider.initSlider(slides);
+    document.onkeydown = () => {
+        Slider.events();
+    }
+    const button = document.getElementById("startShowing");
+    button.addEventListener("click", (e) => Slider.toogle(e));
+};
+</script> 
 </head>
 <body>
 <header class="header"><p><img src="assets/img/navi.png" alt="logo" height="40px"></p></header>
@@ -11,6 +39,11 @@
    <main class="center column">
        <article>
            <h1>Slider</h1>
+           <div id="slider"></div>
+           <button class="buttons_sliders" onclick="Slider.prevSlide()">Prev</button>
+           <button class="buttons_sliders" onclick="Slider.nextSlide()">Next</button>
+           <button class="buttons_sliders" onclick="Slider.hideSlider()">Hide</button>
+           <button class="buttons_sliders" id="startShowing">Start</button>  
            <p></p>
        </article>
    </main>
