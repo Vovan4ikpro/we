@@ -1,3 +1,5 @@
+let indexx;
+
 function Slide(index, title, background, link ) {
     this.title = title;
     this.background = background;
@@ -27,7 +29,6 @@ function Slide(index, title, background, link ) {
             <h2>${slide.title}</h2>
             <a class='link' href='${slide.link}' target='_blank'>Open</a></div></div>`;
         }
- 
         document.getElementById("slider").innerHTML = sliderHTML;
         document.getElementById("slide-" + this.current).style.left = 0;
     },
@@ -63,34 +64,17 @@ function Slide(index, title, background, link ) {
  
         this.current = next;
     },
-    events: function(e) {
-        e = e || window.event;
-
-        if (e.keyCode == '37') {
-           this.prevSlide();
-        }
-        else if (e.keyCode == '39') {
-            this.nextSlide();
-        }
-    },
-    hideSlider: function (e){
-        let a = document.getElementById("slide-" + this.current);
-            if(a.style.display === 'block' ) {
-                a.style.display = 'none';
-    }else{
-        a.style.display = 'block';
-    }
-  },
-    toogle: function (event){
-    if (event.target.classList.contains('start')){
-        event.target.innerHTML = 'Start';
-        clearInterval(interval)
-    } else {
-        event.target.innerHTML = 'Stop';
-        interval = setInterval(()=>{
-            Slider.nextSlide();
-        },1000)
-    }
-    event.target.classList.toggle('start')
- },
-}
+     setSlide: function (id) {
+         console.log("ID " + id + "INDEXX " + indexx);
+         if (indexx !== id) {
+             if (id > indexx) {
+                 this.prevSlide();
+                 this.setSlide(id);
+             }
+             else {
+                 this.nextSlide();
+                 this.setSlide(id);
+             }
+         }
+     },
+ }

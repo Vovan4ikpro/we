@@ -68,12 +68,3 @@
     -webkit-animation: slideOutRight 1s forwards;
     animation: slideOutRight 1s forwards;
  }
-
- .buttons_sliders {
-    color: grey;
-    font-weight: 700;
-    font-size: 17px;
-    border-radius: 5px;
-    width: 100px;
-}
- 
