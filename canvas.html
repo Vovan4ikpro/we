@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/canvas.css">
+    <script src="assets/js/canvas.js"></script>
+</head>
+<body>
+<header class="header"><p><img src="assets/img/navi.png" alt="logo" height = "40px"></p></header>
+<div class="container">
+    <main class="center column">
+        <article>
+            <h1>Canvas</h1>
+            <p></p>
+        </article>
+        <arcticle>
+            <canvas id="draw">
+                <script language="javascript">
+                    window.onload = canvas('#draw', {
+                    width: 500,
+                    height: 300,
+                    strokeWidth: 5,
+                    strokeColor: "#df4b26"
+                    })
+                </script>
+            </canvas>
+            <div class="toolbar" id="toolbar">
+                <button class="btn" onclick="ca">Clear</button>
+            </div>
+
+        </arcticle>
+    </main>
+    <nav class="left column">
+        <h3>Pages</h3>
+        <ul>
+            <li><a href="about.html">about</a></li>
+            <li><a href="contact.html">contact</a></li>
+            <li><a href="media.html">media</a></li>
+            <li><a href="slider.html">slider</a></li>
+            <li><a href="table.html">table</a></li>
+            <li><a href="index.html">index</a></li>
+        </ul>
+    </nav>
+    <div class="right column">
+        <h3>Right heading</h3>
+        <p>21</p>
+    </div>
+    <div class="push"></div>
+</div>
+<div class="footer-wrapper">
+    <footer class="footer"><p><img src="assets/img/navi.png" alt="logo" height = "40px"></p></footer>
+</div>
+</body>
+</html>

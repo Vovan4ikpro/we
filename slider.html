@@ -25,6 +25,11 @@
         }
     ]
     Slider.initSlider(slides);
+    document.onkeydown = () => {
+        Slider.events();
+    }
+    const button = document.getElementById("startShowing");
+    button.addEventListener("click", (e) => Slider.toogle(e));
 };
 </script> 
 </head>
@@ -35,57 +40,10 @@
        <article>
            <h1>Slider</h1>
            <div id="slider"></div>
-           <input id="butt1" class="buttons" type="button" value="Prev"/>
-           <input id="butt2" class="buttons" type="button" value="Next"/>
-           <input id="butt3" class="buttons" type="button" value="Hide"/>
-           <input id="butt4" class="buttons" type="button" value="Start"/>
-           <script>
-               index = 0;
-
-               function handler1() {
-                   Slider.prevSlide();
-               }
-               function handler2() {
-                   Slider.nextSlide();
-               }
-               function handler3(){
-                   if (index % 2 == 0) {
-                       document.getElementById("slider").style.display = "none";
-                       butt3.value = "Show";
-                   }
-                   else {
-                       document.getElementById("slider").style.display = 'block';
-                       butt3.value = "Hide";
-                   }
-                   index++;
-               }
-
-               butt1.addEventListener("click", handler1); // Thanks!
-               butt2.addEventListener("click", handler2); // Thanks again!
-               butt3.addEventListener("click", handler3); // Thanks again!
-               butt4.addEventListener('click', (event)=>{
-                   if (event.target.classList.contains('start')){
-                       event.target.innerHTML = 'Stop';
-                       butt4.value = 'Start';
-                       clearInterval(interval)
-                   } else {
-                       event.target.innerHTML = 'Start';
-                       butt4.value = 'Stop';
-                       interval = setInterval(()=>{
-                           Slider.nextSlide();
-                       },1000)
-                   }
-                   event.target.classList.toggle('start')
-               })
-               for (let h in document.getElementsByClassName("buttons1")) {
-                   h.addEventListener("click", ()=> {
-                       Slider.setSlide(i);
-                   })
-               }
-               for (let i = 0; i < 3; i++) {
-                   let bruh = document.getElementById("button-slide-" + Slider.getIndex())
-               }
-           </script>
+           <button class="buttons_sliders" onclick="Slider.prevSlide()">Prev</button>
+           <button class="buttons_sliders" onclick="Slider.nextSlide()">Next</button>
+           <button class="buttons_sliders" onclick="Slider.hideSlider()">Hide</button>
+           <button class="buttons_sliders" id="startShowing">Start</button>  
            <p></p>
        </article>
    </main>
@@ -97,6 +55,7 @@
         <li><a href="media.html">media</a></li>
         <li><a href="index.html">index</a></li>
         <li><a href="table.html">table</a></li>
+           <li><a href="canvas.html">canvas</a></li>
     </ul>
    </nav>
    <div class="right column">
