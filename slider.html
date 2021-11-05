@@ -5,7 +5,6 @@
    <title>Slider</title>
    <link rel="stylesheet" href="assets/css/layout.css">
    <link rel="stylesheet" href="assets/css/style.css">
-   <script src="assets/js/script.js"></script>
    <script>    window.onload = function() {
     // ви можете зробити скільки завгодно слайдів
     let slides = [
@@ -34,59 +33,15 @@
    <main class="center column">
        <article>
            <h1>Slider</h1>
-           <div id="slider"></div>
-           <input id="butt1" class="buttons" type="button" value="Prev"/>
-           <input id="butt2" class="buttons" type="button" value="Next"/>
-           <input id="butt3" class="buttons" type="button" value="Hide"/>
-           <input id="butt4" class="buttons" type="button" value="Start"/>
-           <script>
-               index = 0;
-
-               function handler1() {
-                   Slider.prevSlide();
-               }
-               function handler2() {
-                   Slider.nextSlide();
-               }
-               function handler3(){
-                   if (index % 2 == 0) {
-                       document.getElementById("slider").style.display = "none";
-                       butt3.value = "Show";
-                   }
-                   else {
-                       document.getElementById("slider").style.display = 'block';
-                       butt3.value = "Hide";
-                   }
-                   index++;
-               }
-
-               butt1.addEventListener("click", handler1); // Thanks!
-               butt2.addEventListener("click", handler2); // Thanks again!
-               butt3.addEventListener("click", handler3); // Thanks again!
-               butt4.addEventListener('click', (event)=>{
-                   if (event.target.classList.contains('start')){
-                       event.target.innerHTML = 'Stop';
-                       butt4.value = 'Start';
-                       clearInterval(interval)
-                   } else {
-                       event.target.innerHTML = 'Start';
-                       butt4.value = 'Stop';
-                       interval = setInterval(()=>{
-                           Slider.nextSlide();
-                       },1000)
-                   }
-                   event.target.classList.toggle('start')
-               })
-               for (let h in document.getElementsByClassName("buttons1")) {
-                   h.addEventListener("click", ()=> {
-                       Slider.setSlide(i);
-                   })
-               }
-               for (let i = 0; i < 3; i++) {
-                   let bruh = document.getElementById("button-slide-" + Slider.getIndex())
-               }
-           </script>
+           <div class="slider" id="slider"></div>
            <p></p>
+           <div  id="slides"></div>
+           <p></p>
+                <button class="prevBtn slid-left">Prev</button>
+                <button class="hideBtn slid-hide">Hide</button>
+                <button class="showBtn slid-show">Show</button>
+                <button class="startStopBtn slide-startStop">Auto</button>
+                <button class="nextBtn slid-right">Next</button> 
        </article>
    </main>
    <nav class="left column">
@@ -108,5 +63,6 @@
 <div class="footer-wrapper">
    <footer class="footer"><p><img src="assets/img/navi.png" alt="logo" height = "40px"></p></footer>
 </div>
+<script src="assets/js/script.js"></script>
 </body>
 </html>

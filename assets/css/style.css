@@ -21,6 +21,23 @@
     width: 100%;
     top: 0;
  }
+
+ .prevBtn, .nextBtn, .hideBtn, .showBtn, .startStopBtn, .slides{
+   padding: 10px 25px;
+   background-color: #4CA74C;
+   color: #fff;
+   border-radius: 25px;
+   text-decoration: none;
+}
+
+.slides{
+   background-color: #808080;
+}
+
+.hide {
+      display: none;
+   }
+
  /* стилі для анімації нижче */
  
  @-webkit-keyframes slideIn {
@@ -68,3 +85,4 @@
     -webkit-animation: slideOutRight 1s forwards;
     animation: slideOutRight 1s forwards;
  }
+
