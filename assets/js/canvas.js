@@ -19,7 +19,9 @@ function canvas(selector, options){
         points.push({
             x: (x - rect.left),
             y: (y - rect.top),
-            dragging: dragging
+            dragging: dragging,
+            color : options.strokeColor,
+            size : options.strokeWidth
         })
     }
 
@@ -28,11 +30,13 @@ function canvas(selector, options){
         //очищуємо  canvas
         context.clearRect(0, 0, context.canvas.width, context.canvas.height);
 
-        context.strokeStyle = options.strokeColor;
+        //context.strokeStyle = options.strokeColor;
         context.lineJoin = "round";
-        context.lineWidth = options.strokeWidth;
+        //context.lineWidth = options.strokeWidth;
         let prevPoint = null;
         for (let point of points){
+            context.strokeStyle = point.color;
+            context.lineWidth = point.size;
             context.beginPath();
             if (point.dragging && prevPoint){
                 context.moveTo(prevPoint.x, prevPoint.y)
@@ -75,12 +79,82 @@ function canvas(selector, options){
     // clear button
     const clearBtn = document.createElement('button')
     clearBtn.classList.add('btn')
-    clearBtn.textContent = 'Clear'
+    clearBtn.innerHTML = '<i class="fas fa-eraser"></i>'
+    //clearBtn.textContent = 'Clear'
 
     clearBtn.addEventListener('click', () => {
-        alert('Клик!');
         context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+        points.length = 0;
     })
     toolBar.insertAdjacentElement('afterbegin', clearBtn)
+    
+    //Download
+    const downloadBtn = document.createElement('button');
+    downloadBtn.classList.add('btn')
+    downloadBtn.innerHTML = '<i class="fas fa-file-export"></i>'
+    //downloadBtn.textContent = 'Download'
+    downloadBtn.addEventListener('click', () => {
+    const dataUrl = canvas.toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    const newTab = window.open('about:blank','image from canvas');
+    newTab.document.write("<img src='" + dataUrl + "' alt='from canvas'/>");
+    })
+    toolBar.insertAdjacentElement('afterbegin', downloadBtn)
 
+    //Save
+    const saveBtn = document.createElement('button');
+    saveBtn.classList.add('btn')
+     saveBtn.innerHTML = '<i class="far fa-save"></i>'
+    //saveBtn.textContent = 'Save'
+    saveBtn.addEventListener('click', () => {
+     localStorage.setItem('points', JSON.stringify(points));
+     })
+     toolBar.insertAdjacentElement('afterbegin', saveBtn)
+
+     //Restore
+     const restoreBtn = document.createElement('button');
+     restoreBtn.classList.add('btn')
+     restoreBtn.innerHTML = '<i class="far fa-window-restore"></i>'
+     //restoreBtn.textContent = 'restore'
+     restoreBtn.addEventListener('click', () => {
+     const raw = localStorage.getItem('points')
+     points = JSON.parse(raw)
+     redraw();
+     })
+     toolBar.insertAdjacentElement('afterbegin', restoreBtn)
+
+     //Time
+     const timeStampBtn = document.createElement('button');
+     timeStampBtn.classList.add('btn')
+     timeStampBtn.innerHTML = '<i class="far fa-calendar-times"></i>'
+     //timeStampBtn.textContent = 'timeStamp'
+     timeStampBtn.addEventListener('click', () => {
+     context.fillText(new Date(), 50, 100);
+ 
+     })
+     toolBar.insertAdjacentElement('afterbegin', timeStampBtn)
+
+    const sizeElem = document.createElement('input');
+    sizeElem.classList.add('defolt')
+    sizeElem.addEventListener("change",() =>{
+        options.strokeWidth = sizeElem.value
+    })
+    toolBar.insertAdjacentElement('afterbegin',  sizeElem)
+
+    const backgroundBtn = document.createElement('button');
+    backgroundBtn.classList.add('btn')
+    backgroundBtn.innerHTML = '<i class="fas fa-images"></i>'
+    //backgroundBtn.textContent = 'background'
+    backgroundBtn.addEventListener('click', () => {
+        const img = new Image;
+        img.src =`https://www.fillmurray.com/200/300)`;
+        img.onload = () => {
+        context.drawImage(img, 0, 0);
+        }
+    })
+    toolBar.insertAdjacentElement('afterbegin', backgroundBtn)
+
+    const colorElem = document.getElementById("color")
+    colorElem.addEventListener("change", () =>{
+        options.strokeColor = colorElem.value
+    } )
 }
